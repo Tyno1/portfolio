@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  background-color: #151515;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+nav li,
+nav {
+  color: #777778;
+  a span {
+    background-color: #777778;
+  }
+}
+
+nav li:hover {
+  color: white;
+  transition: ease-in 0.2s;
+
+  a span {
+    background-color: white;
+    width: 6rem;
+    transition: ease-in 0.3s;
+  }
+}
+nav li:active {
+  color: white;
+  transition: ease-in-out 0.2s;
+
+  a span {
+    background-color: white;
+    width: 6rem;
+  }
+}
+nav a {
+  color: inherit;
+}
