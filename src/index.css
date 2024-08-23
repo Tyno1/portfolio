@@ -8,6 +8,11 @@
   background-color: #151515;
 }
 
+head .link {
+  width: 2px;
+  border-radius: 300px;
+}
+
 body {
   margin: 0;
   display: flex;
