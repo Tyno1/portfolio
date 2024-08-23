@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "./button";
 import { FaGithub } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
-import { NavHashLink } from "react-router-hash-link/dist/react-router-hash-link.cjs.development";
+import {
+  NavHashLink,
+  HashLink,
+} from "react-router-hash-link/dist/react-router-hash-link.cjs.development";
 import IconButton from "./IconButton";
 import { IoMdClose } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 function LeftSection() {
   const navigate = useNavigate();
@@ -17,12 +21,12 @@ function LeftSection() {
     setIsOpen(!isOpen);
   };
 
-  const onNavPress = (route: string) => {
+  const onNavPress = () => {
     setIsOpen(!isOpen);
-    window.location.href = route;
   };
+
   return (
-    <div className="w-full lg:w-[80%] h-[100vh] flex flex-col items-center lg:items-start px-8 lg:px-0 lg:pl-20 py-6 lg:py-20 justify-between">
+    <div className="w-full lg:w-[80%] h-[100vh] flex flex-col items-center lg:items-start px-8 lg:px-0 lg:pl-20 py-6 lg:py-20 lg:justify-between">
       <div className="mobile lg:hidden w-full">
         <IconButton
           icon={
@@ -32,46 +36,71 @@ function LeftSection() {
               <GiHamburgerMenu size={24} color="#fff" />
             )
           }
-          variant="outlined"
-          onClick={() => toggleMenu()}
+          onClick={toggleMenu}
           className="ml-auto"
         />
         <div
-          className={`w-[100vw] h-[100vh] bg-white absolute top-20 z-10 ease-in duration-300 ${
+          className={`w-full h-[100vh] bg-[#151515] fixed top-0 left-0 z-10 transition-all duration-700 ease-in-out transform ${
             isOpen
-              ? "top-0 visible ease-in duration-300"
-              : " top-[-100vh] ease-in duration-300"
+              ? "translate-y-20 opacity-100"
+              : "-translate-y-full opacity-0"
           }`}
         >
-          <ul className="flex flex-col text-sm text-black w-full">
-            <li className="bg-white hover:bg-myGray active:bg-primary">
-              <button
-                className="p-8 w-full mx-auto active:text-white"
-                onClick={() => onNavPress("/")}
+          <ul className="flex flex-col  text-lg text-black w-full">
+            <li className="text-white hover:bg-[#777778] active:bg-black flex">
+              <NavHashLink
+                smooth
+                className="p-8 w-full active:text-white text-center"
+                to="/#"
+                onClick={onNavPress}
               >
                 Home
-              </button>
+              </NavHashLink>
             </li>
-            <li className="bg-white hover:bg-myGray active:bg-primary">
-              <button
-                className="p-8 w-full mx-auto active:text-white"
-                onClick={() => onNavPress("/#work")}
+            <li className="text-white hover:bg-[#777778] active:bg-black flex">
+              <NavHashLink
+                smooth
+                className="p-8 w-full active:text-white text-center"
+                to="/#work"
+                onClick={onNavPress}
               >
                 Work Experience
-              </button>
+              </NavHashLink>
             </li>
-            <li className="bg-white hover:bg-myGray active:bg-primary">
-              <button
-                className="p-8 w-full mx-auto active:text-white"
-                onClick={() => onNavPress("/#projects")}
+            <li className="text-white hover:bg-[#777778] active:bg-black flex">
+              <NavHashLink
+                smooth
+                className="p-8 w-full active:text-white text-center"
+                to="/#projects"
+                onClick={onNavPress}
               >
                 Projects
-              </button>
+              </NavHashLink>
+            </li>
+            <li className="mx-auto mt-20">
+              <div className="footer flex items-center gap-4">
+                <div className="profile-pic w-10 h-10 bg-white rounded-full"></div>
+                <Button
+                  logo={<FaGithub color="#777778" />}
+                  name="GitHub"
+                  link="https://github.com/Tyno1"
+                />
+                <Button
+                  logo={<FaTwitter color="777778" />}
+                  name="Twitter"
+                  link="https://x.com/Kvng_Tyno"
+                />
+                <Button
+                  logo={<MdAlternateEmail color="777778" />}
+                  name="Email"
+                  link="mailto:anthonyukutegbe1@gmail.com"
+                />
+              </div>
             </li>
           </ul>
         </div>
       </div>
-      <div className="description mb-6 flex flex-col gap-6 items-center lg:items-left">
+      <div className="description mb-6 flex flex-col gap-6 items-center lg:items-left mt-20 lg:mt-0">
         <h1 className="text-white font-bold text-4xl">Anthony Ukutegbe</h1>
         <p className="text-[#777778] font-light text-sm leading-loose text-justify">
           Dedicated <span className="text-white">Front-End Developer</span> with
@@ -92,6 +121,16 @@ function LeftSection() {
           cross-functional teams to deliver{" "}
           <span className="text-white">secure and scalable platforms.</span>
         </p>
+        <HashLink
+          smooth
+          className="bg-white flex items-center justify-center py-2 px-4 text-sm mt-4 gap-1"
+          to="#work"
+        >
+          Explore
+          <span>
+            <IoMdArrowDropdown size={20} />
+          </span>
+        </HashLink>
       </div>
 
       <nav className="w-full hidden lg:flex">
@@ -131,31 +170,35 @@ function LeftSection() {
           </li>
         </ul>
       </nav>
-      <div className="footer flex items-center gap-4">
-        <div className="profile-pic w-10 h-10 bg-white rounded-full"></div>
-        <Button
-          logo={<FaGithub color="#777778" />}
-          name="GitHub"
-          link="https://github.com/Tyno1"
-        />
-        <Button
-          logo={<FaTwitter color="777778" />}
-          name="Twitter"
-          link="https://x.com/Kvng_Tyno"
-        />
-        <Button
-          logo={<MdAlternateEmail color="777778" />}
-          name="Email"
-          link="mailto:anthonyukutegbe1@gmail.com"
-        />
+
+      <div className="footer flex flex-col items-center gap-10 mt-auto lg:mt-0">
+        <div className="flex items-center gap-4">
+          <div className="hidden lg:flex profile-pic w-10 h-10 bg-white rounded-full"></div>
+          <Button
+            logo={<FaGithub color="#777778" />}
+            name="GitHub"
+            link="https://github.com/Tyno1"
+          />
+          <Button
+            logo={<FaTwitter color="777778" />}
+            name="Twitter"
+            link="https://x.com/Kvng_Tyno"
+          />
+          <Button
+            logo={<MdAlternateEmail color="777778" />}
+            name="Email"
+            link="mailto:anthonyukutegbe1@gmail.com"
+          />
+        </div>
+
+        <Link
+          className="text-xs text-[#777778]"
+          target="_blank"
+          to="https://www.sarahdayan.dev/"
+        >
+          Inspired By <span className="text-white">Sarah Dayan</span>
+        </Link>
       </div>
-      <Link
-        className="text-xs text-[#777778]"
-        target="_blank"
-        to="https://www.sarahdayan.dev/"
-      >
-        Inspired By <span className="text-white">Sarah Dayan</span>
-      </Link>
     </div>
   );
 }
