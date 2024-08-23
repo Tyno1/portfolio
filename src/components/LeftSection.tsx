@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "./button";
+import Button from "./Button";
 import { FaGithub } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
