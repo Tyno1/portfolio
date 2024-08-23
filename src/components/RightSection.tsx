@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import WorkCard from "./Workcard";
+import WorkCard from "./WorkCard";
 import projects from "../projectsData";
 
 function RightSection() {
