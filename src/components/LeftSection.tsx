@@ -101,7 +101,10 @@ function LeftSection() {
         </div>
       </div>
       <div className="description mb-6 flex flex-col gap-6 items-center lg:items-left mt-20 lg:mt-0">
-        <h1 className="text-white font-bold text-4xl">Anthony Ukutegbe</h1>
+        <div className="text-white flex flex-col items-left w-full">
+          <p className="text-lg text-[#777778]">Hi, i am</p>
+          <h1 className="font-bold text-4xl">Anthony Ukutegbe</h1>
+        </div>
         <p className="text-[#777778] font-light text-sm leading-loose text-justify">
           Dedicated <span className="text-white">Front-End Developer</span> with
           experience in creating{" "}
@@ -123,7 +126,7 @@ function LeftSection() {
         </p>
         <HashLink
           smooth
-          className="bg-white flex items-center justify-center py-2 px-4 text-sm mt-4 gap-1"
+          className="bg-white lg:hidden flex items-center justify-center py-2 px-4 text-sm mt-4 gap-1"
           to="#work"
         >
           Explore
