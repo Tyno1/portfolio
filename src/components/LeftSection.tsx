@@ -4,6 +4,7 @@ import Button from "./Button";
 import { FaGithub } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa";
 import {
   NavHashLink,
   HashLink,
@@ -26,7 +27,7 @@ function LeftSection() {
   };
 
   return (
-    <div className="w-full lg:w-[80%] h-[100vh] flex flex-col items-center lg:items-start px-8 lg:px-0 lg:pl-20 py-6 lg:py-20 lg:justify-between">
+    <div className="w-full lg:w-[80%] h-[100vh] flex flex-col items-center lg:items-start px-8 lg:px-0 lg:pl-10 xl:pl-20 py-6 lg:py-20 lg:justify-between">
       <div className="mobile lg:hidden w-full">
         <IconButton
           icon={
@@ -77,9 +78,9 @@ function LeftSection() {
                 Projects
               </NavHashLink>
             </li>
-            <li className="mx-auto mt-20">
-              <div className="footer flex items-center gap-4">
-                <div className="profile-pic w-10 h-10 bg-white rounded-full"></div>
+            <li className="flex flex-col items-center gap-6 mt-20">
+              <p className="text-[#777778] text-2xl">Connect With Me</p>
+              <div className="footer flex flex-wrap items-center gap-4 w-full justify-center">
                 <Button
                   logo={<FaGithub color="#777778" />}
                   name="GitHub"
@@ -94,6 +95,11 @@ function LeftSection() {
                   logo={<MdAlternateEmail color="777778" />}
                   name="Email"
                   link="mailto:anthonyukutegbe1@gmail.com"
+                />
+                <Button
+                  logo={<FaLinkedin color="777778" />}
+                  name="LinkedIn"
+                  link="https://www.linkedin.com/in/anthony-ukutegbe-350b87253/"
                 />
               </div>
             </li>
@@ -175,7 +181,7 @@ function LeftSection() {
       </nav>
 
       <div className="footer flex flex-col items-center gap-10 mt-auto lg:mt-0">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 w-full flex-wrap justify-center">
           <div className="hidden lg:flex profile-pic w-10 h-10 bg-white rounded-full"></div>
           <Button
             logo={<FaGithub color="#777778" />}
@@ -191,6 +197,11 @@ function LeftSection() {
             logo={<MdAlternateEmail color="777778" />}
             name="Email"
             link="mailto:anthonyukutegbe1@gmail.com"
+          />
+          <Button
+            logo={<FaLinkedin color="777778" />}
+            name="LinkedIn"
+            link="https://www.linkedin.com/in/anthony-ukutegbe-350b87253/"
           />
         </div>
 

@@ -5,9 +5,12 @@ import projects from "../projectsData";
 
 function RightSection() {
   return (
-    <div className="h-[100%] flex flex-col py-20 px-4 lg:px-0 lg:pr-20 gap-20 items-center">
-      <section id="work" className="w-full flex flex-col gap-2">
-        <h2 className="text-white mb-8">WORK EXPERIENCE</h2>
+    <div className="h-[100%] flex flex-col py-20 px-4 lg:px-0 lg:pr-10 xl:pr-20  gap-20 items-center">
+      <section
+        id="work"
+        className="w-full flex flex-col gap-2 items-center group"
+      >
+        <h2 className="text-white mb-8 mr-auto">WORK EXPERIENCE</h2>
         <WorkCard
           stack="JAVASCRIPT | REACT.JS | NODE JS | TAILWIND CSS"
           title="Transfy"
@@ -33,8 +36,11 @@ function RightSection() {
           description="Contributed to the development, maintenance, and enhancement of multiple websites, working closely with back-end developers, designers, and product teams to address front-end issues. Collaborated with senior developers to troubleshoot complex problems and implement periodic updates, ensuring system reliability. Assessed UX and UI designs for technical feasibility and improved website uptime by 15% while reducing downtime incidents by 25% through regular maintenance and optimization."
         />{" "}
       </section>
-      <section id="projects" className="w-full flex flex-col gap-2 ">
-        <h2 className="text-white mb-8">PROJECTS</h2>
+      <section
+        id="projects"
+        className="w-full flex flex-col gap-2 items-center group"
+      >
+        <h2 className="text-white mb-8 mr-auto">PROJECTS</h2>
         <Card
           stack={projects[0].stack}
           title={projects[0].title}

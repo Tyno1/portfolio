@@ -11,7 +11,7 @@ export type CardProps = {
 const Card = ({ stack, title, description, link, }: CardProps) => {
   const navigate = useNavigate();
   return (
-    <div className="w-full flex flex-col items-start gap-4 shadow-lg p-10 bg-[#1b1b1d] cursor-pointer">
+    <div className="w-full md:w-[90%] flex flex-col items-start gap-4 shadow-lg p-10 bg-[#1b1b1d] transition md:hover:!opacity-100 md:hover:scale-110 md:group-hover:opacity-50 ">
       <p className="stack text-white text-xs md:text-sm">
         {stack.map((item, index) => (
           <React.Fragment key={item}>
