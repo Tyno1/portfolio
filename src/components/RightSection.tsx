@@ -13,7 +13,7 @@ function RightSection() {
         <h2 className="text-white mb-8 mr-auto">WORK EXPERIENCE</h2>
         <WorkCard
           stack="JAVASCRIPT | REACT.JS | NODE JS | TAILWIND CSS"
-          title="Transfy"
+          title="Cybergenix Integrated Solution"
           date="March 2022 - Present"
           position="FRONTEND DEVELOPER"
           link="https://transfy.io/"
