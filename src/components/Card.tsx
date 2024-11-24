@@ -35,7 +35,7 @@ const Card = ({ stack, title, description, link }: CardProps) => {
           View Project
         </Link>
         <button
-          onClick={() => navigate(`/details/${title}`)}
+          onClick={() => navigate(`/details/${title.toLowerCase}`)}
           className="py-2 px-4 bg-dawn text-black rounded-sm text-xs cursor-pointer"
         >
           Details

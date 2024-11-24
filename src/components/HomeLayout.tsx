@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import LeftSection from "./LeftSection";
-import { Outlet, useNavigate } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdClose } from "react-icons/io";
-import IconButton from "./IconButton";
+import { Outlet } from "react-router-dom";
+
 
 const HomeLayout = () => {
   return (
