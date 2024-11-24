@@ -31,13 +31,13 @@ const WorkCard = ({
         <p className="title text-white font-bold text-xl md:text-4xl">
           {title}
         </p>
-        <p className="title text-[#777778] font-normal text-xs md:text-sm">
+        <p className="title text-[#A6A6A6] font-normal text-xs md:text-sm">
           {date}
         </p>
       </div>
       <p className="stack text-white text-xs md:text-sm">{stack}</p>
       <p
-        className={`description text-[#777778] text-xs md:text-sm text-justify leading-loose lg:leading-relaxed transition-all ease-in-out duration-700 overflow-hidden ${
+        className={`description text-[#A6A6A6] text-xs md:text-sm text-justify leading-loose lg:leading-relaxed transition-all ease-in-out duration-700 overflow-hidden ${
           viewMore ? "max-h-96" : "max-h-16"
         }`}
       >

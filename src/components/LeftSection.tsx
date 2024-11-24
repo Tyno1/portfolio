@@ -15,7 +15,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 function LeftSection() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -28,6 +28,7 @@ function LeftSection() {
 
   return (
     <div className="w-full lg:w-[80%] h-[100vh] flex flex-col items-center lg:items-start px-8 lg:px-0 lg:pl-10 xl:pl-20 py-6 lg:py-20 lg:justify-between">
+      {/* mobile view */}
       <div className="mobile lg:hidden w-full">
         <IconButton
           icon={
@@ -37,6 +38,7 @@ function LeftSection() {
               <GiHamburgerMenu size={24} color="#fff" />
             )
           }
+          label={isOpen ? "Close Menu" : "Open Menu"}
           onClick={toggleMenu}
           className="ml-auto"
         />
@@ -106,12 +108,14 @@ function LeftSection() {
           </ul>
         </div>
       </div>
-      <div className="description mb-6 flex flex-col gap-6 items-center lg:items-left mt-20 lg:mt-0">
-        <div className="text-white flex flex-col items-left w-full">
-          <p className="text-lg text-[#777778]">Hi, i am</p>
-          <h1 className="font-bold text-4xl">Anthony Ukutegbe</h1>
+
+
+      <div className="description mb-6 flex flex-col gap-6 items-center lg:items-left mt-20 lg:mt-0 text-dawn">
+        <div className="text flex flex-col items-left w-full">
+          <p className="text-lg">Hi, i am</p>
+          <h1 className="font-bold text-4xl text-white">Anthony Ukutegbe</h1>
         </div>
-        <p className="text-[#777778] font-light text-sm leading-loose text-justify">
+        <p className="font-light text-sm leading-loose text-justify">
           Dedicated <span className="text-white">Front-End Developer</span> with
           experience in creating{" "}
           <span className="text-white">
@@ -132,7 +136,7 @@ function LeftSection() {
         </p>
         <HashLink
           smooth
-          className="bg-white lg:hidden flex items-center justify-center py-2 px-4 text-sm mt-4 gap-1"
+          className="bg-white text-black lg:hidden flex items-center justify-center py-2 px-4 text-sm mt-4 gap-1"
           to="#work"
         >
           Explore
@@ -142,6 +146,7 @@ function LeftSection() {
         </HashLink>
       </div>
 
+      {/* hashlinks */}
       <nav className="w-full hidden lg:flex">
         <ul className="text-white w-full flex flex-col">
           <li className="py-4 flex items-center">
@@ -179,7 +184,7 @@ function LeftSection() {
           </li>
         </ul>
       </nav>
-
+      {/* footer */}
       <div className="footer flex flex-col items-center gap-10 mt-auto lg:mt-0">
         <div className="flex items-center gap-4 w-full flex-wrap justify-center">
           <div className="hidden lg:flex profile-pic w-10 h-10 bg-white rounded-full"></div>
@@ -206,7 +211,7 @@ function LeftSection() {
         </div>
 
         <Link
-          className="text-xs text-[#777778]"
+          className="text-xs text-dawn"
           target="_blank"
           to="https://www.sarahdayan.dev/"
         >

@@ -1,4 +1,3 @@
-import saltus from "./assets/saltus.png";
 import flexicart from "./assets/flexicart.png";
 import jury from "./assets/jury.png";
 import medikart from "./assets/medikart.png";

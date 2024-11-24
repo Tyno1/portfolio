@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  background-color: #151515;
+  background-color: rgb(15, 15, 15);
 }
 
 head .link {
@@ -22,9 +22,9 @@ body {
 }
 nav li,
 nav {
-  color: #777778;
+  color: rgb(158, 158, 158);
   a span {
-    background-color: #777778;
+    background-color: rgb(158, 158, 158);
   }
 }
 

@@ -5,7 +5,6 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Home from "./Home";
 import RightSection from "./components/RightSection";
 import HomeLayout from "./components/HomeLayout";
 import Details from "./components/Details";

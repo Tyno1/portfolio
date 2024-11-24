@@ -3,6 +3,7 @@ import React from "react";
 
 interface IconButtonProps {
   onClick?: (e: any) => void;
+  label: string;
   className?: string;
   variant?: string;
   isSubmitting?: boolean;
@@ -11,6 +12,7 @@ interface IconButtonProps {
 }
 
 const IconButton = ({
+  label,
   icon,
   onClick,
   className,
@@ -32,6 +34,7 @@ const IconButton = ({
 
   return (
     <button
+      aria-label={label}
       onClick={onClick}
       type={type}
       disabled={isSubmitting}
