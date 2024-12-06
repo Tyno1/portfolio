@@ -30,7 +30,7 @@ function RightSection() {
         <WorkCard
           stack="JAVASCRIPT | REACT.JS | NODE JS | TAILWIND CSS"
           title="Jeff Corp Agency"
-          date="June 2021 - Nov 2022"
+          date="June 2020 - Nov 2021"
           position="JUNIOR FRONTEND DEVELOPER"
           link=""
           description="Contributed to the development, maintenance, and enhancement of multiple websites, working closely with back-end developers, designers, and product teams to address front-end issues. Collaborated with senior developers to troubleshoot complex problems and implement periodic updates, ensuring system reliability. Assessed UX and UI designs for technical feasibility and improved website uptime by 15% while reducing downtime incidents by 25% through regular maintenance and optimization."
