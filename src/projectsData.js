@@ -3,9 +3,57 @@ import jury from "./assets/jury.png";
 import medikart from "./assets/medikart.png";
 
 const projects = [
- 
   {
     id: "1",
+    title: "Bite Scout",
+    stack: [
+      "NEXT.JS",
+      "REACT.JS",
+      "TYPESCRIPT",
+      "JAVASCRIPT",
+      "REACT NATIVE",
+      "NODE JS",
+      "MONGODB",
+      "TAILWIND CSS",
+      "FRAMER MOTION",
+    ],
+    interface: ["Responsive Website", "Crossplatform Mobile Application"],
+    image: flexicart,
+    link: "",
+    description: {
+      intro: "",
+      platformDevelopment: {
+        frontendDevelopment:
+          "The web interface was built using Typescript and ReactJS, which provides a type system that allows type-related errors get caught at compile time rather than at runtime. This choice also allows for a  responsive and dynamic design that adapts to various devices and screen sizes.",
+        mobileApplicationDevelopment:
+          "The cross-platform mobile application was developed using React Native. This approach enabled code reuse from the web frontend and ensured a consistent experience across both iOS and Android devices.",
+        backendDevelopment:
+          "Node.js and ExpressJS were used to create a robust backend, handling user authentication, data management, and integration with external services like Stripe for payment processing. The backend supports scalable API endpoints for seamless communication between the web interface and mobile app.",
+        database:
+          "MongoDB was selected for its flexibility and scalability, allowing the application to handle diverse data types and grow with increasing user activity. The database structure supports efficient querying and management of user accounts, orders, products, and reviews.",
+
+        aesthetics:
+          "The application boasts a clean and modern design, thanks to Tailwind CSS and framer motion. The utility-first approach facilitated rapid development and precise control over the layout and styling, ensuring an intuitive and engaging user experience.",
+      },
+      keyFeatures: {
+        MultitenancyAndUserManagement:
+          "The system supports various user roles including shop owners and customers. Each role has specific permissions and access controls, managed through JSON Web Tokens (JWT). Each user role can only access resources and perform actions relevant to their role, as determined by JWT-based permissions.",
+        DataIsolationAndMultitenancy:
+          "To address data isolation and multitenancy, the system utilizes tenant-specific identifiers, such as restaurantId and ownerId, to ensure that each tenant's data remains separate and secure. Middleware is employed to enforce data access policies and ensure that API calls are restricted to the appropriate tenant’s data.",
+        AdminPanel:
+          "Administrative features are prominently integrated into the system, including an admin dashboard that allows shop owners to manage their shop details, customize the app appearance, and oversee product and service listings. The system also includes capabilities for managing customer reviews and feedback, ensuring high-quality interactions and service.",
+        AuthenticationAndSecurity:
+          "In terms of authentication and security, the system uses JWT for secure user authentication, requiring that the JWT be included in the headers of subsequent requests to validate user identity and token expiration. Role-Based Access Control (RBAC) is employed to ensure that each user can only access resources and perform actions relevant to their role. Data encryption is applied both in transit and at rest, with HTTPS used for data transmission and sensitive data encrypted before storage. Encryption keys are securely managed using environment variables to prevent exposure.",
+        DatabaseDesign:
+          "The database design features MongoDB, a NoSQL database known for its flexibility and scalability. This document-oriented database stores entities like users, shops, and products as documents within collections, allowing for efficient data management and retrieval. The schema-less nature of MongoDB supports rapid development and iterative updates.",
+        FieldValidation:
+          "JSON Web Tokens (JWT) for secure user authentication, protecting user data and ensuring high uptime",
+      },
+    },
+    inDevelopment: true,
+  },
+  {
+    id: "2",
     title: "Flexicart",
     stack: [
       "TYPESCRIPT",
@@ -62,9 +110,10 @@ const projects = [
           "JSON Web Tokens (JWT) for secure user authentication, protecting user data and ensuring high uptime",
       },
     },
+    inDevelopment: false,
   },
   {
-    id: "2",
+    id: "3",
     title: "MediKart",
     interface: ["Responsive Website"],
     stack: ["JAVASCRIPT", "REACT.JS", "NODE JS", "TAILWIND CSS"],
@@ -103,9 +152,10 @@ const projects = [
         AdminPanel: "Moderators can upload drugs data, manage reviews",
       },
     },
+    inDevelopment: true,
   },
   {
-    id: "3",
+    id: "4",
     title: "Jury",
     interface: ["Responsive Website", "Crossplatform Mobile Application"],
     stack: [
@@ -157,6 +207,7 @@ const projects = [
           "JSON Web Tokens (JWT) were used for secure user authentication, ensuring that only authorized users can access certain features of the platform, such as admin routes. This adds an additional layer of security, protecting user data from unauthorized access and ensuring uptime is consistently above 99.9%, providing a reliable service for users.",
       },
     },
+    inDevelopment: false,
   },
 ];
 

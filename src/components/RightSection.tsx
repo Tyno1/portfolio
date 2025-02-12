@@ -41,24 +41,18 @@ function RightSection() {
         className="w-full flex flex-col gap-2 items-center group"
       >
         <h2 className="text-white mb-8 mr-auto">PROJECTS</h2>
-        <Card
-          stack={projects[0].stack}
-          title={projects[0].title}
-          link={projects[0].link}
-          description={projects[0].description.intro}
-        />
-        <Card
-          stack={projects[1].stack}
-          title={projects[1].title}
-          link={projects[1].link}
-          description={projects[1].description.intro}
-        />
-        <Card
-          stack={projects[2].stack}
-          title={projects[2].title}
-          link={projects[2].link}
-          description={projects[2].description.intro}
-        />
+        {projects.map((project) => {
+          return (
+            <Card
+              key={project.id}
+              stack={project.stack}
+              title={project.title}
+              link={project.link}
+              description={project.description.intro}
+              inDevelopment={project.inDevelopment}
+            />
+          );
+        })}
       </section>
     </div>
   );
