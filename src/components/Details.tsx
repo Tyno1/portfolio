@@ -39,7 +39,7 @@ const Details = () => {
           </button>
         </div>
         <div className="top-section flex flex-col lg:flex-row gap-10 items-start lg:items-end animate-fade-in-up">
-          <div className="image-container w-full sm:w-[70vw] md:w-[50vw] lg:w-[30vw] h-[35vh] bg-white hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-2xl rounded-lg overflow-hidden">
+          <div className="image-container w-full sm:w-[70vw] md:w-[50vw] lg:w-[50vw] h-[35vh] bg-white hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-2xl rounded-lg overflow-hidden">
             <img
               className="w-full h-full object-cover"
               src={project.image}
