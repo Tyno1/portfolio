@@ -25,7 +25,7 @@ const WorkCard = ({
     setViewMore(!viewMore);
   };
   return (
-    <div className="w-full flex flex-col items-start gap-4 shadow-lg p-10 bg-[#1b1b1d] transition md:hover:!opacity-100 md:hover:scale-110 md:group-hover:opacity-50">
+    <div className="w-full flex flex-col items-start gap-4 shadow-lg p-10 bg-[#1b1b1d] transition hover:!opacity-100 hover:scale-105 active:scale-95 group-hover:opacity-50 md:hover:scale-110">
       <p className="stack text-white text-xs md:text-sm">{position}</p>
       <div className="flex w-full justify-between gap-2 items-center">
         <p className="title text-white font-bold text-xl md:text-4xl">

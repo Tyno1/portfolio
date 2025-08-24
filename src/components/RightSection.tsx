@@ -36,7 +36,7 @@ function RightSection() {
 
       <section
         id="projects"
-        className="flex flex-col gap-2 group pt-20 lg:pt-0 animate-fade-in-up animation-delay-200"
+        className="flex flex-col gap-2 group animate-fade-in-up animation-delay-200"
       >
         <h2 className="text-[#00ff88] mb-8">PROJECTS</h2>
         <div className="flex justify-center">
@@ -62,12 +62,12 @@ function RightSection() {
 
       <section
         id="skills"
-        className="flex flex-col gap-2 group pt-20 lg:pt-0 animate-fade-in-up animation-delay-400"
+        className="flex flex-col gap-2 group animate-fade-in-up animation-delay-400"
       >
         <h2 className="text-[#00ff88] mb-8">SKILLS</h2>
         <div className="flex justify-center">
           <div className="w-full max-w-4xl">
-            <div className="bg-[#1b1b1d] p-10 rounded-lg shadow-lg hover:scale-110 transition-all duration-300 group-hover:opacity-50 hover:!opacity-100">
+            <div className="bg-[#1b1b1d] p-10 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {skillsData.map((category) => (
                   <div key={category.id} className="skill-category">
@@ -89,7 +89,7 @@ function RightSection() {
 
       <section
         id="about"
-        className="flex flex-col gap-2 group pt-20 lg:pt-0 animate-fade-in-up animation-delay-600"
+        className="flex flex-col gap-2 group animate-fade-in-up animation-delay-600"
       >
         <h2 className="text-[#00ff88] mb-8">ABOUT ME</h2>
         <div className="flex justify-center">

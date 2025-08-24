@@ -12,13 +12,3 @@ declare module 'react-router-hash-link' {
   
   export const NavHashLink: ComponentType<NavHashLinkProps>;
 }
-work
-Work Experience
-skills
-Skills
-projects
-Projects
-about
-About Me
-home
-Back to Home

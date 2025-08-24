@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import projects from "../data/projectsData";
 import ParticleBackground from "./ParticleBackground";
 
@@ -11,8 +11,6 @@ const Details = () => {
   if (!project) {
     return <h1>Project Not Found</h1>;
   }
-
-  const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);

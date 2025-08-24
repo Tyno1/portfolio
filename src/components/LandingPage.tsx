@@ -1,9 +1,8 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import profileImage from "../assets/IMG_1013.jpg";
 import { navigationItems, socialLinksData } from "../data";
 import type { NavigationItem } from "../data/navigation";
 import Button from "./Button";
@@ -84,7 +83,7 @@ function LandingPage() {
           <div className="profile-pic w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-2xl relative">
             <div className="absolute inset-0 rounded-full border-2 border-[#00ff88]/30 shadow-[0_0_20px_rgba(0,255,136,0.3)]" />
             <img 
-              src={profileImage} 
+              src="/src/assets/IMG_1013.jpg" 
               alt="Anthony Ukutegbe" 
               className="w-full h-full object-cover rounded-full"
             />
