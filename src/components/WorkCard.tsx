@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export type CardProps = {
   stack: string;
@@ -25,7 +25,7 @@ const WorkCard = ({
     setViewMore(!viewMore);
   };
   return (
-    <div className="w-full md:w-[90%] flex flex-col items-start gap-4 shadow-lg p-10 bg-[#1b1b1d] transition md:hover:!opacity-100 md:hover:scale-110 md:group-hover:opacity-50 ">
+    <div className="w-full flex flex-col items-start gap-4 shadow-lg p-10 bg-[#1b1b1d] transition md:hover:!opacity-100 md:hover:scale-110 md:group-hover:opacity-50">
       <p className="stack text-white text-xs md:text-sm">{position}</p>
       <div className="flex w-full justify-between gap-2 items-center">
         <p className="title text-white font-bold text-xl md:text-4xl">
@@ -47,22 +47,27 @@ const WorkCard = ({
         <Link
           to={link}
           target="_blank"
-          className="py-2 px-4 bg-[#777778] rounded-sm text-xs cursor-pointer flex justify-center items-center"
+          className="py-2 px-4 bg-[#555555] rounded-sm text-xs cursor-pointer flex justify-center items-center text-white font-medium hover:bg-[#666666] transition-colors"
+          aria-label={`Visit ${title} website`}
         >
           Visit
         </Link>
         {viewMore ? (
           <button
+            type="button"
             onClick={toggleViewMore}
-            className="py-2 pl-4 pr-2 bg-[#777778] rounded-sm text-xs cursor-pointer flex items-center"
+            className="py-2 pl-4 pr-2 bg-[#555555] rounded-sm text-xs cursor-pointer flex items-center text-white font-medium hover:bg-[#666666] transition-colors"
+            aria-label="View less information"
           >
             <p>View Less</p>
             <IoMdArrowDropup size={20} />
           </button>
         ) : (
           <button
+            type="button"
             onClick={toggleViewMore}
-            className="py-2 pl-4 pr-2 bg-[#777778] rounded-sm text-xs cursor-pointer flex items-center"
+            className="py-2 pl-4 pr-2 bg-[#555555] rounded-sm text-xs cursor-pointer flex items-center text-white font-medium hover:bg-[#666666] transition-colors"
+            aria-label="View more information"
           >
             <p>View More</p>
             <IoMdArrowDropdown size={20} />

@@ -1,34 +1,94 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Button from "./Button";
-import { FaGithub } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { MdAlternateEmail } from "react-icons/md";
-import { FaLinkedin } from "react-icons/fa";
-import {
-  NavHashLink,
-  HashLink,
-} from "react-router-hash-link/dist/react-router-hash-link.cjs.development";
-import IconButton from "./IconButton";
-import { IoMdClose } from "react-icons/io";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdArrowDropdown } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
+import { MdAlternateEmail } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
+import { navigationItems, socialLinksData } from "../data";
+import type { NavigationItem } from "../data/navigation";
+import Button from "./Button";
+import IconButton from "./IconButton";
+import Logo from "./Logo";
 
 function LeftSection() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const onNavPress = () => setIsOpen(!isOpen);
+
+  const getIconComponent = (iconName: string) => {
+    switch (iconName) {
+      case 'FaGithub':
+        return FaGithub;
+      case 'FaTwitter':
+        return FaTwitter;
+      case 'FaLinkedin':
+        return FaLinkedin;
+      case 'MdAlternateEmail':
+        return MdAlternateEmail;
+      default:
+        return FaGithub;
+    }
   };
 
-  const onNavPress = () => {
-    setIsOpen(!isOpen);
+  const getScrollOffset = () => {
+    const isMobile = window.innerWidth < 1024;
+    return isMobile ? -120 : -80;
   };
+
+  const renderNavigationItem = (item: NavigationItem, isMobile = true) => {
+    const yOffset = getScrollOffset();
+    
+    if (item.isExternal) {
+      return (
+        <Link
+          className={`${isMobile ? 'p-8 w-full text-center' : ''} hover:text-[#00ff88] transition-colors duration-200`}
+          to={item.path}
+          onClick={isMobile ? onNavPress : undefined}
+        >
+          {item.title}
+        </Link>
+      );
+    }
+
+    return (
+      <NavHashLink
+        smooth
+        className={`${isMobile ? 'p-8 w-full text-center' : ''} hover:text-[#00ff88] transition-colors duration-200`}
+        to={item.path}
+        onClick={isMobile ? onNavPress : undefined}
+        scroll={(el) => {
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }}
+      >
+        {item.title}
+      </NavHashLink>
+    );
+  };
+
+  const renderSocialLinks = () => (
+    <div className="flex items-center gap-4 flex-wrap justify-center">
+      {socialLinksData.map((link) => {
+        const IconComponent = getIconComponent(link.icon);
+        return (
+          <Button
+            key={link.id}
+            logo={<IconComponent color="#a0a0a0" />}
+            name={link.name}
+            link={link.url}
+          />
+        );
+      })}
+    </div>
+  );
 
   return (
-    <div className="w-full lg:w-[80%] h-[100vh] flex flex-col items-center lg:items-start px-8 lg:px-0 lg:pl-10 xl:pl-20 py-6 lg:py-20 lg:justify-between">
-      {/* mobile view */}
-      <div className="mobile lg:hidden w-full">
+    <>
+      {/* Mobile Navigation Bar */}
+      <div className="lg:hidden fixed top-0 left-0 z-50 bg-[#0f0f0f] px-8 py-6 w-full flex justify-between items-center">
+        <Logo variant="squared" />
         <IconButton
           icon={
             isOpen ? (
@@ -39,185 +99,71 @@ function LeftSection() {
           }
           label={isOpen ? "Close Menu" : "Open Menu"}
           onClick={toggleMenu}
-          className="ml-auto"
         />
-        <div
-          className={`w-full h-[100vh] bg-[#151515] fixed top-0 left-0 z-10 transition-all duration-700 ease-in-out transform ${
-            isOpen
-              ? "translate-y-20 opacity-100"
-              : "-translate-y-full opacity-0"
-          }`}
-        >
-          <ul className="flex flex-col  text-lg text-black w-full">
-            <li className="text-white hover:bg-[#777778] active:bg-black flex">
-              <NavHashLink
-                smooth
-                className="p-8 w-full active:text-white text-center"
-                to="/#"
-                onClick={onNavPress}
-              >
-                Home
-              </NavHashLink>
-            </li>
-            <li className="text-white hover:bg-[#777778] active:bg-black flex">
-              <NavHashLink
-                smooth
-                className="p-8 w-full active:text-white text-center"
-                to="/#work"
-                onClick={onNavPress}
-              >
-                Work Experience
-              </NavHashLink>
-            </li>
-            <li className="text-white hover:bg-[#777778] active:bg-black flex">
-              <NavHashLink
-                smooth
-                className="p-8 w-full active:text-white text-center"
-                to="/#projects"
-                onClick={onNavPress}
-              >
-                Projects
-              </NavHashLink>
-            </li>
-            <li className="flex flex-col items-center gap-6 mt-20">
-              <p className="text-[#777778] text-2xl">Connect With Me</p>
-              <div className="footer flex flex-wrap items-center gap-4 w-full justify-center">
-                <Button
-                  logo={<FaGithub color="#777778" />}
-                  name="GitHub"
-                  link="https://github.com/Tyno1"
-                />
-                <Button
-                  logo={<FaTwitter color="777778" />}
-                  name="Twitter"
-                  link="https://x.com/Kvng_Tyno"
-                />
-                <Button
-                  logo={<MdAlternateEmail color="777778" />}
-                  name="Email"
-                  link="mailto:anthonyukutegbe1@gmail.com"
-                />
-                <Button
-                  logo={<FaLinkedin color="777778" />}
-                  name="LinkedIn"
-                  link="https://www.linkedin.com/in/anthony-ukutegbe-350b87253/"
-                />
-              </div>
-            </li>
-          </ul>
-        </div>
       </div>
-
-
-      <div className="description mb-6 flex flex-col gap-6 items-center lg:items-left mt-20 lg:mt-0 text-dawn">
-        <div className="text flex flex-col items-left w-full">
-          <p className="text-lg">Hi, i am</p>
-          <h1 className="font-bold text-4xl text-white">Anthony Ukutegbe</h1>
-        </div>
-        <p className="font-light text-sm leading-loose text-justify">
-          Dedicated <span className="text-white">Front-End Developer</span> with
-          experience in creating{" "}
-          <span className="text-white">
-            responsive and user-friendly web and mobile applications{" "}
-          </span>
-          across various industries. Proficient in{" "}
-          <span className="text-white">
-            React, Typescript, JavaScript, and modern front-end frameworks.
-          </span>{" "}
-          Strong background in{" "}
-          <span className="text-white">
-            graphic design and user interface design
-          </span>
-          , balancing functional and aesthetic design.
-          <span className="text-white"> Effective collaborator</span> with
-          cross-functional teams to deliver{" "}
-          <span className="text-white">secure and scalable platforms.</span>
-        </p>
-        <HashLink
-          smooth
-          className="bg-white text-black lg:hidden flex items-center justify-center py-2 px-4 text-sm mt-4 gap-1"
-          to="#work"
-        >
-          Explore
-          <span>
-            <IoMdArrowDropdown size={20} />
-          </span>
-        </HashLink>
-      </div>
-
-      {/* hashlinks */}
-      <nav className="w-full hidden lg:flex">
-        <ul className="text-white w-full flex flex-col">
-          <li className="py-4 flex items-center">
-            <span>00</span>
-            <NavHashLink
-              smooth
-              className="w-full h-full flex items-center"
-              to="#work"
-            >
-              <span className="mx-4 w-[4rem] h-[1px] "></span>
-              WORK EXPERIENCE
-            </NavHashLink>
-          </li>
-          <li className="py-4 flex items-center">
-            <span>01</span>
-            <NavHashLink
-              smooth
-              to="#projects"
-              className="w-full h-full flex items-center"
-            >
-              <span className="mx-4 w-[4rem] h-[1px] "></span>
-              PROJECTS
-            </NavHashLink>
-          </li>
-          <li className="w-full py-4 flex items-center">
-            <span>02</span>
-            <Link
-              className="w-full h-full flex items-center"
-              target="_blank"
-              to="https://www.linkedin.com/in/anthony-ukutegbe-350b87253/"
-            >
-              <span className="mx-4 w-[4rem] h-[1px] "></span>
-              LINKEDIN
-            </Link>
+      
+      {/* Mobile Menu */}
+      <div
+        className={`w-full h-[100vh] bg-[#0f0f0f] fixed top-0 left-0 z-40 transition-all duration-700 ease-in-out transform ${
+          isOpen
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-full opacity-0 pointer-events-none"
+        }`}
+      >
+        <ul className="flex flex-col text-lg text-black w-full pt-24">
+          {navigationItems.map((item) => (
+            <li key={item.id} className="text-white hover:bg-[#1b1b1d] active:bg-[#2a2a2c] flex">
+              {renderNavigationItem(item, true)}
+            </li>
+          ))}
+          <li className="flex flex-col items-center gap-6 mt-20">
+            <p className="text-[#a0a0a0] text-2xl">Connect With Me</p>
+            <div className="footer flex flex-wrap items-center gap-4 w-full justify-center">
+              {renderSocialLinks()}
+            </div>
           </li>
         </ul>
-      </nav>
-      {/* footer */}
-      <div className="footer flex flex-col items-center gap-10 mt-auto lg:mt-0">
-        <div className="flex items-center gap-4 w-full flex-wrap justify-center">
-          <div className="hidden lg:flex profile-pic w-10 h-10 bg-white rounded-full"></div>
-          <Button
-            logo={<FaGithub color="#777778" />}
-            name="GitHub"
-            link="https://github.com/Tyno1"
-          />
-          <Button
-            logo={<FaTwitter color="777778" />}
-            name="Twitter"
-            link="https://x.com/Kvng_Tyno"
-          />
-          <Button
-            logo={<MdAlternateEmail color="777778" />}
-            name="Email"
-            link="mailto:anthonyukutegbe1@gmail.com"
-          />
-          <Button
-            logo={<FaLinkedin color="777778" />}
-            name="LinkedIn"
-            link="https://www.linkedin.com/in/anthony-ukutegbe-350b87253/"
-          />
+      </div>
+
+      {/* Desktop LeftSection */}
+      <div className="hidden lg:flex w-full lg:w-[20%] h-[100vh] flex-col items-center lg:items-start px-8 lg:px-0 lg:pl-10 xl:pl-20 py-6 lg:py-20 lg:justify-between lg:fixed lg:left-0 lg:top-0 lg:z-40">
+        <div className="hidden lg:flex w-full justify-center lg:justify-start mb-8 animate-fade-in-up">
+          <Logo variant="squared" />
+        </div>
+        
+        <nav className="hidden lg:flex w-full flex-col items-center lg:items-start mt-20 lg:mt-0 animate-fade-in-up">
+          <div className="text-center lg:text-left mb-8">
+            <h2 className="text-[#00ff88] text-2xl font-semibold mb-2">Explore My World</h2>
+          </div>
+          
+          <ul className="text-white w-full flex flex-col items-center lg:items-start">
+            {navigationItems.map((item, index) => (
+              <li key={item.id} className="py-4 flex items-center w-full justify-center lg:justify-start hover:scale-105 transition-transform duration-200">
+                <span className="text-[#a0a0a0] text-sm mr-3">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                {renderNavigationItem(item, false)}
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="social-links flex flex-col items-center gap-6 mt-auto lg:mt-8 animate-fade-in-up animation-delay-200">
+          <p className="text-[#a0a0a0] text-sm">Connect With Me</p>
+          {renderSocialLinks()}
         </div>
 
-        <Link
-          className="text-xs text-dawn"
-          target="_blank"
-          to="https://www.sarahdayan.dev/"
-        >
-          Inspired By <span className="text-white">Sarah Dayan</span>
-        </Link>
+        <div className="footer flex flex-col items-center gap-4 mt-4 lg:mt-0">
+          <Link
+            className="text-xs text-[#a0a0a0] hover:text-white transition-colors duration-200"
+            target="_blank"
+            to="https://www.sarahdayan.dev/"
+          >
+            Inspired By <span className="text-white">Sarah Dayan</span>
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

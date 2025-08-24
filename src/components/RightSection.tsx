@@ -1,58 +1,111 @@
 import React from "react";
+import { aboutMeData, skillsData, workExperienceData } from "../data";
+import projects from "../data/projectsData";
 import Card from "./Card";
 import WorkCard from "./WorkCard";
-import projects from "../projectsData";
 
 function RightSection() {
   return (
-    <div className="h-[100%] flex flex-col py-20 px-4 lg:px-0 lg:pr-10 xl:pr-20  gap-20 items-center">
+    <div className="h-[100%] flex flex-col py-8 px-4 lg:px-0 gap-20">
       <section
         id="work"
-        className="w-full flex flex-col gap-2 items-center group"
+        className="flex flex-col gap-2 group pt-8 lg:pt-0 animate-fade-in-up"
       >
-        <h2 className="text-white mb-8 mr-auto">WORK EXPERIENCE</h2>
-        <WorkCard
-          stack="JAVASCRIPT | REACT.JS | NODE JS | TAILWIND CSS"
-          title="Cybergenix Integrated Solution"
-          date="March 2022 - Present"
-          position="FRONTEND DEVELOPER"
-          link="https://cybergenixintegratedsolution.com/"
-          description="A dynamic software development company specializing in creating cutting-edge web applications and custom software solutions. Their expertise spans across full-stack development, leveraging the latest technologies and frameworks to deliver robust, scalable, and user-centric digital solutions. With a client-focused approach, they transform business ideas into powerful software applications, whether through sophisticated web platforms, custom enterprise solutions, or innovative digital products. Their development team excels in delivering end-to-end solutions, from initial concept and design through to deployment and ongoing maintenance, ensuring each project meets the highest standards of performance, security, and user experience. As technology partners, they work closely with businesses to understand their unique challenges and objectives, creating tailored software solutions that drive operational efficiency and digital growth. Their commitment to continuous innovation and technical excellence positions them as a trusted partner for businesses seeking to establish or enhance their digital presence through modern web and software development."
-        />{" "}
-        <WorkCard
-          stack="JAVASCRIPT | REACT.JS | NODE JS | TAILWIND CSS"
-          title="Top Football Trials UK"
-          date="Nov 2021 - March 2022"
-          position="JUNIOR FRONTEND DEVELOPER"
-          link="https://topfootballtrials.co.uk/"
-          description="At Top Football Trials UK, one of the fastest-growing football trials companies, I developed and launched a platform that showcases football talent to FA-licensed scouts and agents. Utilizing JavaScript and React.js, I implemented front-end features to enhance functionality and user experience. I handled complex business logic on the client side, ensuring alignment with user requirements and business needs. I collaborated with the team lead on technical issues and integration points, ensuring code quality and adherence to best practices. Engaged in Agile processes, including sprint planning and daily stand-ups, to drive efficient project delivery."
-        />{" "}
-        <WorkCard
-          stack="JAVASCRIPT | REACT.JS | NODE JS | TAILWIND CSS"
-          title="Jeff Corp Agency"
-          date="June 2020 - Nov 2021"
-          position="JUNIOR FRONTEND DEVELOPER"
-          link=""
-          description="Contributed to the development, maintenance, and enhancement of multiple websites, working closely with back-end developers, designers, and product teams to address front-end issues. Collaborated with senior developers to troubleshoot complex problems and implement periodic updates, ensuring system reliability. Assessed UX and UI designs for technical feasibility and improved website uptime by 15% while reducing downtime incidents by 25% through regular maintenance and optimization."
-        />{" "}
+        <h2 className="text-[#00ff88] mb-8">WORK EXPERIENCE</h2>
+        <div className="flex justify-center">
+          <div className="w-full max-w-4xl flex flex-col gap-4">
+            {workExperienceData.map((work, index) => (
+              <div 
+                key={work.id} 
+                className="w-full animate-fade-in-up"
+                style={{ animationDelay: `${0.2 + (index * 0.1)}s` }}
+              >
+                <WorkCard
+                  stack={work.stack.join(" | ").toUpperCase()}
+                  title={work.title}
+                  date={work.date}
+                  position={work.position.toUpperCase()}
+                  link={work.website || ""}
+                  description={work.description}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
+
       <section
         id="projects"
-        className="w-full flex flex-col gap-2 items-center group"
+        className="flex flex-col gap-2 group pt-20 lg:pt-0 animate-fade-in-up animation-delay-200"
       >
-        <h2 className="text-white mb-8 mr-auto">PROJECTS</h2>
-        {projects.map((project) => {
-          return (
-            <Card
-              key={project.id}
-              stack={project.stack}
-              title={project.title}
-              link={project.link}
-              description={project.description.intro}
-              inDevelopment={project.inDevelopment}
-            />
-          );
-        })}
+        <h2 className="text-[#00ff88] mb-8">PROJECTS</h2>
+        <div className="flex justify-center">
+          <div className="w-full max-w-4xl flex flex-col gap-4">
+            {projects.map((project, index) => (
+              <div 
+                key={project.id} 
+                className="w-full animate-fade-in-up"
+                style={{ animationDelay: `${0.4 + (index * 0.1)}s` }}
+              >
+                <Card
+                  stack={project.stack}
+                  title={project.title}
+                  link={project.link}
+                  description={project.description.intro}
+                  inDevelopment={project.inDevelopment}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="skills"
+        className="flex flex-col gap-2 group pt-20 lg:pt-0 animate-fade-in-up animation-delay-400"
+      >
+        <h2 className="text-[#00ff88] mb-8">SKILLS</h2>
+        <div className="flex justify-center">
+          <div className="w-full max-w-4xl">
+            <div className="bg-[#1b1b1d] p-10 rounded-lg shadow-lg hover:scale-110 transition-all duration-300 group-hover:opacity-50 hover:!opacity-100">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {skillsData.map((category) => (
+                  <div key={category.id} className="skill-category">
+                    <h3 className="text-white text-lg font-semibold mb-3">{category.name}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <span key={skill} className="bg-[#555555] text-white px-3 py-1 rounded-sm text-xs">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="about"
+        className="flex flex-col gap-2 group pt-20 lg:pt-0 animate-fade-in-up animation-delay-600"
+      >
+        <h2 className="text-[#00ff88] mb-8">ABOUT ME</h2>
+        <div className="flex justify-center">
+          <div className="w-full max-w-4xl">
+            <div className="bg-[#1a1a1a] p-8 rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              {aboutMeData.map((section) => (
+                <div key={section.id} className="mb-6 last:mb-0">
+                  <h3 className="text-white text-xl font-semibold mb-4">{section.title}</h3>
+                  <p className="text-[#a0a0a0] text-base leading-relaxed">
+                    {section.content}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
