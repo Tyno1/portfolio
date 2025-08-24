@@ -126,7 +126,7 @@ function LeftSection() {
 
 			{/* Mobile Menu - Hidden by default */}
 			<div
-				className={`w-full h-[100vh] bg-[#0f0f0f] fixed top-0 left-0 z-40 transition-all duration-700 ease-in-out transform ${
+				className={`lg:hidden w-full h-[100vh] bg-[#0f0f0f] fixed top-0 left-0 z-40 transition-all duration-700 ease-in-out transform ${
 					isOpen
 						? "translate-y-0 opacity-100"
 						: "-translate-y-full opacity-0 pointer-events-none"
@@ -141,15 +141,6 @@ function LeftSection() {
 							{renderNavigationItem(item)}
 						</li>
 					))}
-					<li className="text-white hover:bg-[#1b1b1d] active:bg-[#2a2a2c] flex">
-						<Link
-							className="p-8 w-full text-center hover:text-[#00ff88] transition-colors duration-200"
-							to="/"
-							onClick={onNavPress}
-						>
-							Back to Home
-						</Link>
-					</li>
 					<li className="flex flex-col items-center gap-6 mt-20">
 						<p className="text-[#a0a0a0] text-2xl">Connect With Me</p>
 						<div className="footer flex flex-wrap items-center gap-4 w-full justify-center">
