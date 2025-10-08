@@ -1,4 +1,4 @@
-import flexicart from "../assets/flexicart.png";
+import flexicart from "../assets/flexicart.jpg";
 import jury from "../assets/jury.png";
 import medikart from "../assets/medikart.png";
 
@@ -105,7 +105,7 @@ const projects: Project[] = [
     ],
     interface: ["Responsive Web Application", "Cross-platform Mobile Application", "RESTful API", "Microservices Architecture", "API Documentation"],
     image: flexicart,
-    link: "https://bitescout.vercel.app/",
+    link: "https://bitescout-web.onrender.com",
     description: {
       intro: "BiteScout is a sophisticated, enterprise-grade restaurant management and food discovery platform built with modern microservices architecture. The platform features a comprehensive web dashboard, cross-platform mobile application, robust backend API, and dedicated media management service, all orchestrated through a Turborepo monorepo structure for optimal development efficiency and scalability.",
       systemArchitecture: {

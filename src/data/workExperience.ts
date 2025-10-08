@@ -11,6 +11,21 @@ export interface WorkExperience {
 
 export const workExperienceData: WorkExperience[] = [
   {
+    id: 'ers-insurance',
+    title: 'ERS Insurance',
+    company: 'ERS Insurance',
+    position: 'Front-End Developer',
+    date: 'March 2025 – present',
+    stack: [
+      'React.js', 'Next.js', 'TypeScript', 'REST APIs', 'OAuth2', 'JWT', 
+      'Azure DevOps', 'GitHub Actions', 'Docker', 'Jest', 'Cypress', 
+      'Storybook', 'ESLint', 'Vite', 'Prettier', 'Server-side rendering', 
+      'Lazy loading', 'Caching', 'WCAG', 'Agile', 'TDD', 'CI/CD'
+    ],
+    description: 'Developed and maintained a large-scale Admin Dashboard Platform used by internal teams and hundreds of insurance brokers to manage accounts, policies and claims. Built responsive, high-performance interfaces using React, Next.js, and TypeScript, integrating securely with multiple REST APIs to ensure reliable data exchange and real-time updates. Collaborated closely with designers and product owners to deliver intuitive, accessible, and visually consistent UIs aligned with WCAG and brand guidelines. Optimized application performance through server-side rendering, lazy loading, and caching strategies, reducing average load times by up to 40%. Implemented secure authentication and role-based access control using OAuth2 and JWT, ensuring compliance with internal security policies. Contributed to CI/CD pipelines using Azure DevOps, GitHub Actions, and Docker, improving deployment reliability and reducing release cycle times. Maintained and improved shared design systems and front-end tooling (Storybook, ESLint, Vite, Prettier), streamlining collaboration and onboarding for new developers. Wrote and maintained unit and integration tests with Jest and Cypress, adopting TDD practices that reduced frontend defects by 30%. Worked in an Agile environment, collaborating with cross-functional teams to plan, deliver, and iterate on features with measurable business impact.',
+    website: 'https://ers.com'
+  },
+  {
     id: 'cybergenix',
     title: 'Cybergenix Integrated Solution',
     company: 'Cybergenix Integrated Solution',
