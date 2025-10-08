@@ -30,7 +30,7 @@ export const workExperienceData: WorkExperience[] = [
     title: 'Cybergenix Integrated Solution',
     company: 'Cybergenix Integrated Solution',
     position: 'Front-End Developer',
-    date: 'March 2022 – present',
+    date: 'March 2022 – March 2025',
     stack: [
       'Next.js', 'React.js', 'TypeScript', 'WebSocket', 'Zod', 'Shadcn UI', 
       'Storybook', 'Figma', 'Zustand', 'Redux', 'Docker', 'Microservices', 
