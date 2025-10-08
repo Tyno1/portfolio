@@ -28,11 +28,11 @@ export const socialLinksData: SocialLink[] = [
     icon: 'MdAlternateEmail',
     color: '#a0a0a0'
   },
-  // {
-  //   id: 'linkedin',
-  //   name: 'LinkedIn',
-  //   url: 'https://www.linkedin.com/in/anthony-ukutegbe-350b87253/',
-  //   icon: 'FaLinkedin',
-  //   color: '#a0a0a0'
-  // }
+  {
+    id: 'linkedin',
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/anthony-ukutegbe-350b87253/',
+    icon: 'FaLinkedin',
+    color: '#a0a0a0'
+  }
 ];
