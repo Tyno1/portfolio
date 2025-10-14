@@ -50,7 +50,7 @@ export const workExperienceData: WorkExperience[] = [
       'Performance optimization', 'JavaScript ES6', 'HTML5', 'CSS3'
     ],
     description: 'Developed and launched a football scout website, organizing competitions and showcasing player talents to FA-licensed scouts and agents. Developed responsive and dynamic user interfaces using React.js, creating seamless interactions and improving overall user experience. Utilised jest for unit testing in the application\'s frontend. Use of React navigation in conjunction with Redux state management for custom navigation based on data. Collaborated closely with the design team to ensure UI/UX consistency and implement design specifications. Utilized JavaScript and React.js to code and implement frontend features, ensuring robust and efficient functionality. Engaged in technical discussions with the team lead to address integration points and potential issues. Integrated RESTful APIs into the frontend, enabling efficient communication between the backend and frontend components. Implemented client-side form validation and error handling to enhance the reliability of user inputs. Worked on optimizing application performance, identifying bottlenecks, and implementing improvements to achieve faster load times. Ensured code readability, reusability, and maintainability, adhering to best practices and coding standards.',
-    website: 'https://topfootballtrialsuk.com'
+    website: 'https://topfootballtrials.co.uk/'
   },
   {
     id: 'jeffcorp',
